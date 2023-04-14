@@ -8,6 +8,6 @@ WORKDIR home
 
 EXPOSE 8080
 
-COPY spring-petclinic*.jar .
+COPY target/spring-petclinic*.jar .
 
 ENTRYPOINT java -jar spring-petclinic*.jar
