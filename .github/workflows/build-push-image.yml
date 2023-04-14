@@ -1,7 +1,7 @@
 name: Docker Build
 on: [ pull_request, push, workflow_dispatch ]
 env:
-  APP_NAME: petclinic
+  APP_NAME: av-dso-poc
   APP_PORT: 8080
 
 jobs:
@@ -106,7 +106,7 @@ jobs:
         with:
           image: ${{ steps.build-image.outputs.image }}
           tags: ${{ steps.build-image.outputs.tags }}
-          registry: docker.io/avtarmarway/av-dso-poc
+          registry: docker.io/avtarmarway/
 #           username: ${{ secrets.DOCKER_USERNAME }}
 #           password: ${{ secrets.DOCKER_PASSWORD }}
           
