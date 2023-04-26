@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-petclinic
+  namespace: spring-petclinic
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: spring-petclinic
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: spring-petclinic
+        image: avtarmarway/av-dso-poc:latest
+        ports: 
+        - name: app-port
+          containerPort: 8080
